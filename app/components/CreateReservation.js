@@ -49,9 +49,7 @@ class CreateReservation extends Component {
               e.preventDefault();
               const res = await addReservation();
               console.log(res);
-              Router.push({
-                pathname: '/'
-              });
+              Router.push('/');
             }}
             >
             <Error error={error} />
