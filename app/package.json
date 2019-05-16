@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-boost": "^0.3.1",
+    "graphql": "^14.3.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}

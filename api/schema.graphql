@@ -1,0 +1,7 @@
+type Reservation {
+    id: ID!
+    name: String!
+    hotelName: String!
+    arrivalDate: String!
+    departureDate: String!
+}

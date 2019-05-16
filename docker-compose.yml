@@ -1,0 +1,43 @@
+version: "2"
+
+services:
+
+  app:
+    build:
+      context: ./app
+    volumes:
+      - ./app/:/app
+    depends_on:
+      - mongodb
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+
+  api:
+    build:
+      context: ./api
+    volumes:
+      - ./api:/api
+    depends_on:
+      - mongodb
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3001:3001
+      - 4000:4000
+
+  mongodb:
+    image: mongo:3.6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: terriblepassword
+      MONGO_DATABASE: hiltonBackend
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/var/lib/mongo
+
+volumes:
+  mongo:

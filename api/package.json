@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Backend API to serve GraphQL endpoints",
+  "main": "server.js",
+  "author": "John Bonnot",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-iso-date": "^3.6.1",
+    "graphql-yoga": "^1.17.4",
+    "mongoose": "^5.5.5"
+  },
+  "scripts": {
+    "dev": "nodemon ./server.js",
+    "test": "mocha test/*.test.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  }
+}
