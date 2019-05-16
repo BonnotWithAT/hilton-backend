@@ -1,6 +1,7 @@
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './ErrorMessage';
+import Reservation from './Reservation';
 
 export const allReservationsQuery = gql`
   query allReservations {
@@ -24,12 +25,8 @@ export default function ReservationList() {
         return (
           <section>
             <ul>
-              {allReservations.map((reservation, index) => (
-                <li key={reservation.id}>
-                  <div>
-                    {reservation.name} {reservation.hotelName}
-                  </div>
-                </li>
+              {allReservations.map(reservation => (
+                <Reservation key={reservation.id} reservation={reservation} />
               ))}
             </ul>
           </section>

@@ -2009,6 +2009,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+graphql-iso-date@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/graphql-iso-date/-/graphql-iso-date-3.6.1.tgz#bd2d0dc886e0f954cbbbc496bbf1d480b57ffa96"
+
 graphql-tag@^2.4.2:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
@@ -2681,6 +2685,12 @@ next-server@8.1.0:
     react-ssr-prepass "1.0.2"
     send "0.16.1"
     url "0.11.0"
+
+next-with-apollo@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/next-with-apollo/-/next-with-apollo-3.4.0.tgz#24dd9a86938805f168b2ea521d745900d3e52ace"
+  dependencies:
+    isomorphic-unfetch "^3.0.0"
 
 next@^8.1.0:
   version "8.1.0"
