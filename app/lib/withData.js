@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 
 function createClient({ headers }) {
   return new ApolloClient({
-    uri: 'http://api:4000/graphql',
+    uri: 'http://localhost:4000/graphql',
     request: operation => {
       operation.setContext({
         fetchOptions: {
