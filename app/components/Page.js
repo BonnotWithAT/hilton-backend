@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import Header from './Header';
+import Meta from './Meta';
+
+const theme = {
+  maxWidth: '1000px',
+};
 
 const StyledPage = styled.div`
   background: white;
@@ -7,12 +13,12 @@ const StyledPage = styled.div`
 `;
 
 const InnerSection = styled.div`
-  max-width: 1200;
+  max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
 `;
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -33,10 +39,13 @@ class Page extends Component {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
-          <Inner>{this.props.children}</Inner>
+          <Meta />
+          <Header />
+          <InnerSection>{this.props.children}</InnerSection>
+          <GlobalStyle />
         </StyledPage>
       </ThemeProvider>
-    )
+    );
   }
 }
 

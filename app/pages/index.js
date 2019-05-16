@@ -1,13 +1,11 @@
-import App from '../components/App';
 import ReservationList from '../components/ReservationList';
 import CreateReservation from '../components/CreateReservation';
 
-export default () => (
-  <App>
-    <div>
-      <p>Reservation API Front-end</p>
-    </div>
+const IndexPage = props => (
+  <div>
     <CreateReservation />
     <ReservationList />
-  </App>
-)
+  </div>
+);
+
+export default IndexPage;
