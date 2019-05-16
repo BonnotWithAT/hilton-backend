@@ -10,7 +10,7 @@ Also at the bottom will be a compendium, as best as I can maintain it, of everyw
 
 To fullfill the first two requirements for the stack, Reactjs and Webpack, I am using NextJS. Obviously another route to go would be create-react-app; I chose NextJS because it was more familiar after a course I took (Wes Bos Advanced React and GraphQL).
 
-Apollo GraphQL will be used both in the client side and on the server. I went back and forth on if I wanted to do a GraphQL-Yoga and Prisma matchup or a more bare-bones DIY approach. In the end I decided not to use Prisma in order to show how I would set up the necessary queries and mutations, though I still think Prisma is Really, Really Interesting (capitalization for effect).
+GraphQL-Yoga will be used on the backend and Apollo in the client. I went back and forth on if I wanted to do a GraphQL-Yoga and Prisma matchup or a more basic approach. In the end I decided not to use Prisma in order to show how I would set up the necessary queries and mutations, though I still think Prisma is Really, Really Interesting (capitalization for effect).
 
 The base image I will build off of will be a Node 8.x one (latest of the line) which should satisfy the Node and Docker requirements.
 
@@ -20,7 +20,7 @@ For AWS I am simply building everything in containers in such a way to be easily
 
 The last imperative after the Bonus was to "Please Productionize". Here are the factors I considered in getting what I have here ready for production, along with the steps I would take in an actual production environment.
 
-1) ENV Variables: Most obvious would be to not store environment settings inside the repository. I will try to set up sensible development and production defaults for the code to follow.
+1) ENV Variables: Most obvious would be to not store environment settings inside the repository. I will try to set up sensible development and production defaults for the code to follow. There is a sample `.env` file in the api directory.
 
 2) GraphiQL: leaving it on for development but off for production.
 
@@ -33,6 +33,7 @@ The last imperative after the Bonus was to "Please Productionize". Here are the 
 6) App and Api containers: While it is completely possible to run everything in one container I felt more comfortable making two separate ones so that there was separation of concerns between the back and and front end packages.
 
 7) Authentication: I would normally set up authentication/authorization on the API to ensure no unwanted access, typically with JWTs unless there was a compelling reason not to use them. Did not implement due to time constraints.
+
 ## Weird Stuff
 
 I am used to working with Docker on Macs, so trying to set up Node to run in Docker, on Windows, with reloading, was an adventure I did not know I was going to be on. Turned out even with refreshing the drives in Docker settings it still really, really wanted me to have my repository under my user directory and not on a different drive. I am not experienced enough in Docker on Windows to know how usual this is or not. I had to create a next.config.js file to force webpack to rebuild periodically as well which I have not seen as necessary on Mac either.

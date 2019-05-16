@@ -6,6 +6,7 @@
   "author": "John Bonnot",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "graphql-iso-date": "^3.6.1",
     "graphql-yoga": "^1.17.4",
     "mongoose": "^5.5.5"

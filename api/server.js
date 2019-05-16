@@ -1,8 +1,10 @@
+require('dotenv').config()
 const { GraphQLServer } = require('graphql-yoga');
 const { GraphQLDateTime } = require('graphql-iso-date');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://mongouser:terriblepassword@mongodb:27017");
 const Reservation = require('./models/Reservation');
+
+mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CONTAINER}:27017`);
 
 const typeDefs = `
   scalar GraphQLDateTime
@@ -45,17 +47,14 @@ const resolvers = {
 };
 
 const options = {
-  port: 4000,
+  port: process.env.PORT,
   endpoint: "/graphql",
   subscriptions: "/subscriptions",
   playgaround: "/playground"
 };
 
 const server = new GraphQLServer({ typeDefs, resolvers });
-//server.start(() => console.log('Server is running on localhost: 4000'));
-// mongoose.connection.once("open", function() {
-  server.start(options, ({ port }) =>
-    console.log(`Server started on port ${port}`)
-  );
-// });
+server.start(options, ({ port }) =>
+  console.log(`Server started on port ${port}`)
+);
 
