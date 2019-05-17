@@ -1,5 +1,7 @@
 require('dotenv').config()
-const { GraphQLServer } = require('graphql-yoga');
+const express = require('express');
+const cors = require('cors');
+const { ApolloServer, gql } = require('apollo-server-express');
 const { GraphQLDateTime } = require('graphql-iso-date');
 const mongoose = require('mongoose');
 const Reservation = require('./models/Reservation');
@@ -44,18 +46,12 @@ const resolvers = {
   }
 };
 
-const options = {
-  port: process.env.PORT,
-  endpoint: "/graphql",
-  subscriptions: "/subscriptions",
-  playgaround: "/playground"
-};
-
-const server = new GraphQLServer({ typeDefs, resolvers });
-server.express.get('/gettest', function(req, res) {
-  res.send('Test works');
+const server = new ApolloServer({ typeDefs, resolvers });
+const app = express();
+app.use(cors());
+app.get('/testendpoint', function (req, res) {
+  res.json({message: 'Got this'});
 });
-server.start(options, ({ port }) =>
-  console.log(`Server started on port ${port}`)
-);
+server.applyMiddleware({ app });
 
+app.listen({ port: process.env.PORT }, () => console.log(`Server now ready`));

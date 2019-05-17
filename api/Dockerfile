@@ -10,4 +10,4 @@ COPY . .
 
 RUN yarn global add nodemon
 
-CMD [ "nodemon", "server.js" ]
+CMD [ "nodemon", "index.js" ]
