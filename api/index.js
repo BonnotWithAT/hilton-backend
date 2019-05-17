@@ -1,12 +1,16 @@
-require('dotenv').config()
-const express = require('express');
-const cors = require('cors');
-const { ApolloServer, gql } = require('apollo-server-express');
-const { GraphQLDateTime } = require('graphql-iso-date');
-const mongoose = require('mongoose');
-const Reservation = require('./models/Reservation');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const { ApolloServer, gql } = require("apollo-server-express");
+const { GraphQLDateTime } = require("graphql-iso-date");
+const mongoose = require("mongoose");
+const Reservation = require("./models/Reservation");
 
-mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CONTAINER}:27017`);
+mongoose.connect(
+  `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${
+    process.env.MONGO_CONTAINER
+  }:27017`
+);
 
 const typeDefs = `
   scalar GraphQLDateTime
@@ -28,18 +32,26 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-    getReservation: async (_, {id}) => {
+    getReservation: async (_, { id }) => {
       const reservation = await Reservation.findById(id);
       return reservation;
     },
-    allReservations: async (_) => {
+    allReservations: async _ => {
       const reservations = await Reservation.find();
       return reservations;
     }
   },
   Mutation: {
-    addReservation: async (_, { name, hotelName, arrivalDate, departureDate }) => {
-      const reservation = new Reservation({name, hotelName, arrivalDate, departureDate});
+    addReservation: async (
+      _,
+      { name, hotelName, arrivalDate, departureDate }
+    ) => {
+      const reservation = new Reservation({
+        name,
+        hotelName,
+        arrivalDate,
+        departureDate
+      });
       await reservation.save();
       return reservation;
     }
@@ -49,8 +61,8 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 app.use(cors());
-app.get('/testendpoint', function (req, res) {
-  res.json({message: 'Got this'});
+app.get("/testendpoint", function(req, res) {
+  res.json({ message: "Got this" });
 });
 server.applyMiddleware({ app });
 

@@ -5,10 +5,11 @@ Normally planning out a project would be the work of a team of people to talk wi
 - [X] Create db, app, api containers
 - [X] Connect all containers through docker-compose
 - [-] Create migrations for creating reservation table
-- [ ] Create sample data for the reservation table
-- [ ] Create the three endpoints (GET /reservations, GET /reservation/ID, POST /reservation)
+- [-] Create sample data for the reservation table
+- [X] Create the three endpoints (GET /reservations, GET /reservation/ID, POST /reservation)
 - [X] Hook up front end
 - [X] Create Next app
 - [ ] Test on Windows and Mac
 - [X] Ensure prod/dev flags and setup work correctly
 - [ ] MakeFile setup
+- [ ] Validation on dates to ensure arrival < departure

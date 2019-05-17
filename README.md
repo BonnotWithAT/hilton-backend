@@ -52,6 +52,10 @@ I did not manage to get as much done on this as I thought I would, and some part
 
 I also endeavored to comment code when used whole cloth from other sources, as it is never my intention to pass off others' code as my own, and I feel doing so is often a good way of both documenting what was used when coming back to the code months later and hopefully showing others new coders to follow and digest.
 
+## Code Formatting
+
+I currently enjoy using Visual Studio Code more than I ever thought I would. To aid in formatting I use the `Prettier - Code Formatter by Esben Petersen` with default settings. I personally still use semicolons when typing Javascript, even when not "required", so if there are missing semicolons in files it is because I did not run Prettier on them and missed them while typing it myself. I did strive to keep a uniform style but the code could definitely use more love in the formatting.
+
 ## Assessment as given in the email
 
 This is a challenge related to graph with a Hospitality spin.
