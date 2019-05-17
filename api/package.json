@@ -20,14 +20,27 @@
     "test": "jest"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "casual": "^1.6.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "enzyme-to-json": "^3.3.5",
+    "graphql-tools": "^4.0.4",
     "jest": "^24.8.0",
+    "jest-transform-graphql": "^2.1.0",
     "mocha": "^6.1.4",
     "supertest": "^4.0.2"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
     "testPathIgnorePatterns": [
-      "/node_modules"
-    ]
+      "<rootDir>/node_modules/",
+      "<rootDir>/.next/"
+    ],
+    "transform": {
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    }
   }
 }
