@@ -46,11 +46,15 @@ Once the basics of the three containers was figured out, I concentrated on getti
 
 I had originally started the back end using `graphql-yoga` as it was the last graphql server I had used, though I have used the first version of `apollo-server` and the spec version from Facebook in the past. It was only after I tried to "eject" from it to add in the three base endpoints in the requirements that I began to get frustrated, along with seeing a lot of yarn alerts when installing packages. I eventually discovered it has been mostly abandoned after the work the Apollo team did on `apollo-server` version 2, and so created a branch to refactor to use it instead.
 
+Due to the back end automatic reload not working correctly I needed to do a docker-compose down and up on the api container when changes were made, while NextJS was maddeningly efficient and well-behaved. I would need to do a build when new packages were added though.
+
 ## Areas which Need Improvement
 
 I did not manage to get as much done on this as I thought I would, and some parts of the code suffered. My test coverage needs to be a few factors greater, which is the most egregious of the faults. There are also some logging errors I need to clean up with the SSR of NextJS that I did not have time to really dig into. Last, the UI could use a lot of love in the looks department; I felt ignoring most of the look would not be too wrong.
 
 I also endeavored to comment code when used whole cloth from other sources, as it is never my intention to pass off others' code as my own, and I feel doing so is often a good way of both documenting what was used when coming back to the code months later and hopefully showing others new coders to follow and digest.
+
+The folder structure on the back end has a large number of improvements. Most notably, the information for the reservations could be pulled to its own folder to keep its "domain" in one location, with the typeDefs, resolvers, and model in one umbrella. This would be necessary on a larger application where you would have several different types and many queries and mutations. I chose to keep everything fairly centralized both for time constraints and to limit the necessary file surfing when reading this assessment.
 
 ## Code Formatting
 

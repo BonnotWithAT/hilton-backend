@@ -12,6 +12,7 @@ mongoose.connect(
   }:27017`
 );
 
+// I am not entirely sure I'm including the graphql-iso-date the "right" way here
 const typeDefs = `
   scalar GraphQLDateTime
   type Query {
@@ -53,7 +54,7 @@ const resolvers = {
         departureDate
       });
       await reservation.save();
-      return reservation;
+      return reservation.id;
     }
   }
 };
@@ -61,9 +62,29 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 app.use(cors());
-app.get("/testendpoint", function(req, res) {
-  res.json({ message: "Got this" });
+
+// These were fun to figure out
+app.get("/reservations", async (req, res) => {
+  allres = await resolvers.Query.allReservations(null);
+  res.json(allres);
 });
+app.get("/reservation/:id", async (req, res) => {
+  reservation = await resolvers.Query.getReservation(null, {
+    id: req.params.id
+  });
+  res.json(reservation);
+});
+// Not sure that req.query is the most correct here but it is what is currently working
+app.post("/reservation", async (req, res) => {
+  newid = await resolvers.Mutation.addReservation(null, {
+    name: req.query.name,
+    hotelName: req.query.hotelName,
+    arrivalDate: req.query.arrivalDate,
+    departureDate: req.query.departureDate
+  });
+  res.json(newid);
+});
+
 server.applyMiddleware({ app });
 
 app.listen({ port: process.env.PORT }, () => console.log(`Server now ready`));
