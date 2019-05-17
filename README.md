@@ -50,7 +50,7 @@ Due to the back end automatic reload not working correctly I needed to do a dock
 
 ## Areas which Need Improvement
 
-I did not manage to get as much done on this as I thought I would, and some parts of the code suffered. My test coverage needs to be a few factors greater, which is the most egregious of the faults. There are also some logging errors I need to clean up with the SSR of NextJS that I did not have time to really dig into. Last, the UI could use a lot of love in the looks department; I felt ignoring most of the look would not be too wrong.
+I did not manage to get as much done on this as I thought I would, and some parts of the code suffered. I could not get test runners to run properly on the back end, which is the most egregious of the faults. There are also some logging errors I need to clean up with the SSR of NextJS that I did not have time to really dig into. Last, the UI could use a lot of love in the looks department; I felt ignoring most of the look would not be too wrong.
 
 I also endeavored to comment code when used whole cloth from other sources, as it is never my intention to pass off others' code as my own, and I feel doing so is often a good way of both documenting what was used when coming back to the code months later and hopefully showing others new coders to follow and digest.
 
