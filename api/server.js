@@ -9,7 +9,6 @@ mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWO
 const typeDefs = `
   scalar GraphQLDateTime
   type Query {
-    hello(name: String): String!
     getReservation(id: ID!): Reservation
     allReservations: [Reservation]
   }
@@ -27,7 +26,6 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-    hello: (_, { name }) => `Hello ${name || "World"}`,
     getReservation: async (_, {id}) => {
       const reservation = await Reservation.findById(id);
       return reservation;
@@ -54,6 +52,9 @@ const options = {
 };
 
 const server = new GraphQLServer({ typeDefs, resolvers });
+server.express.get('/gettest', function(req, res) {
+  res.send('Test works');
+});
 server.start(options, ({ port }) =>
   console.log(`Server started on port ${port}`)
 );

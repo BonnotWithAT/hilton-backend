@@ -29,11 +29,8 @@ services:
       - 4000:4000
 
   mongodb:
+    env_file: ./api/.env
     image: mongo:3.6
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongouser
-      MONGO_INITDB_ROOT_PASSWORD: terriblepassword
-      MONGO_DATABASE: hiltonBackend
     ports:
       - 27017:27017
     volumes:
