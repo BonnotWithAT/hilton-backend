@@ -30,11 +30,12 @@
     "graphql-tools": "^4.0.4",
     "jest": "^24.8.0",
     "jest-transform-graphql": "^2.1.0",
-    "mocha": "^6.1.4",
-    "supertest": "^4.0.2"
+    "mocha": "^6.1.4"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/.next/"
