@@ -19,7 +19,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "NODE_ENV=test jest --watch",
+    "testwin": "SET NODE_ENV=test & jest --watch"
   },
   "devDependencies": {
     "babel-jest": "^24.8.0",

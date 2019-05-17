@@ -12,7 +12,11 @@ mongoose.connect(
   }:27017`
 );
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: process.env.NODE_ENV === "development"
+});
 const app = express();
 app.use(cors());
 
