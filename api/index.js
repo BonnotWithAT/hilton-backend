@@ -39,7 +39,7 @@ app.post("/reservation", async (req, res) => {
     arrivalDate: req.query.arrivalDate,
     departureDate: req.query.departureDate
   });
-  res.json(newid);
+  res.json(newid._id);
 });
 
 server.applyMiddleware({ app });
