@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { GraphQLDateTime } from 'graphql-iso-date';
+import { GraphQLDate } from 'graphql-iso-date';
 import Router from 'next/router';
 import Error from './ErrorMessage';
 
@@ -9,8 +9,8 @@ const CREATE_RESERVATION = gql`
   mutation CREATE_RESERVATION(
     $name: String!
     $hotelName: String!
-    $arrivalDate: GraphQLDateTime!
-    $departureDate: GraphQLDateTime!
+    $arrivalDate: GraphQLDate!
+    $departureDate: GraphQLDate!
   ) {
     addReservation(
       name: $name
@@ -31,8 +31,8 @@ class CreateReservation extends Component {
   state = {
     name: '',
     hotelName: '',
-    arrivalDate: Date.now(),
-    departureDate: Date.now()
+    arrivalDate: new Date(),
+    departureDate: new Date()
   };
 
   handleChange = e => {
@@ -67,7 +67,7 @@ class CreateReservation extends Component {
                 <input type="text" id="arrivalDate" name="arrivalDate" placeholder="Arrival Date" required value={this.state.arrivalDate} onChange={this.handleChange} />
               </label>
               <label htmlFor="departureDate">
-                Arrival Date 
+                Departure Date 
                 <input type="text" id="departureDate" name="departureDate" placeholder="Departure Date" required value={this.state.departureDate} onChange={this.handleChange} />
               </label>
               <button type="submit">Submit Reservation</button>

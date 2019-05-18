@@ -6,6 +6,10 @@ Hello to any and all viewing my code; I will try to explain how I approached thi
 
 Also at the bottom will be a compendium, as best as I can maintain it, of everywhere I took inspiration, training, or code from, in the interests of not plagiarizing. And, who knows, they may be new resources for those viewing this.
 
+## Standing up
+
+Clone the repository, and do a `yarn install` in both the api and app directories. Go back to the root repository and run `docker-compose up` or `docker-compose up -d`.
+
 ## Tech Used
 
 To fullfill the first two requirements for the stack, Reactjs and Webpack, I am using NextJS. Obviously another route to go would be create-react-app; I chose NextJS because it was more familiar after a course I took (Wes Bos Advanced React and GraphQL).

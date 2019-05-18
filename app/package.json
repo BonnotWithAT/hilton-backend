@@ -14,14 +14,14 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
     "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6",
     "styled-components": "^4.2.0"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "NODE_ENV=test jest --watch",
-    "testwin": "SET NODE_ENV=test & jest --watch"
+    "test": "jest"
   },
   "devDependencies": {
     "babel-jest": "^24.8.0",
@@ -35,6 +35,9 @@
     "jest-transform-graphql": "^2.1.0"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/.next/"

@@ -23,7 +23,7 @@ const resolvers = {
         departureDate
       });
       await reservation.save();
-      return reservation.id;
+      return reservation;
     }
   }
 };

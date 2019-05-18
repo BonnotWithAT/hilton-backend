@@ -1,7 +1,7 @@
-const { GraphQLDateTime } = require("graphql-iso-date");
+const { GraphQLDate } = require("graphql-iso-date");
 
 const typeDefs = `
-  scalar GraphQLDateTime
+  scalar GraphQLDate
   type Query {
     getReservation(id: ID!): Reservation
     allReservations: [Reservation]
@@ -10,11 +10,11 @@ const typeDefs = `
     id: ID!
     name: String!
     hotelName: String!
-    arrivalDate: GraphQLDateTime!
-    departureDate: GraphQLDateTime!
+    arrivalDate: GraphQLDate!
+    departureDate: GraphQLDate!
   }
   type Mutation {
-    addReservation(name: String!, hotelName: String!, arrivalDate: GraphQLDateTime!, departureDate: GraphQLDateTime!): Reservation!
+    addReservation(name: String!, hotelName: String!, arrivalDate: GraphQLDate!, departureDate: GraphQLDate!): Reservation!
   }
 `;
 
