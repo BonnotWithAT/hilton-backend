@@ -8,13 +8,17 @@ Also at the bottom will be a compendium, as best as I can maintain it, of everyw
 
 ## Standing up
 
-Clone the repository, and do a `yarn install` in both the api and app directories. Go back to the root repository and run `docker-compose up` or `docker-compose up -d`.
+1) Clone the repository, and do a `yarn install` in both the api and app directories.
+
+2) Copy the `.env.example` file to `.env`. Ensure the usernames and passwords match if you change them; if not you may have to do a new build on the database container with the `--renew-anon-volumes` flag.
+
+3) Go back to the root repository and run `docker-compose up` or `docker-compose up -d`.
 
 ## Tech Used
 
 To fullfill the first two requirements for the stack, Reactjs and Webpack, I am using NextJS. Obviously another route to go would be create-react-app; I chose NextJS because it was more familiar after a course I took (Wes Bos Advanced React and GraphQL).
 
-For the GraphQL-Apollo requirement I am using ApolloClient on the front end and Apollo Server on the back end (extended with apollo-server-express to be able to create endpoints easier).
+For the GraphQL-Apollo requirement I am using ApolloClient on the front end and Apollo Server on the back end (extended with apollo-server-express to be able to create endpoints easier, the documentation for "ejecting" from the base Apollo-Server seemed lacking).
 
 The base image I will build off of will be a Node 8.x one (latest of the line) which should satisfy the Node and Docker requirements.
 

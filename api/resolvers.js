@@ -2,11 +2,11 @@ const Reservation = require("./models/Reservation");
 
 const resolvers = {
   Query: {
-    getReservation: async (_, { id }) => {
+    getReservation: async (_, { id }, ctx) => {
       const reservation = await Reservation.findById(id);
       return reservation;
     },
-    allReservations: async _ => {
+    allReservations: async (_, { id }, ctx) => {
       const reservations = await Reservation.find();
       return reservations;
     }
@@ -14,7 +14,8 @@ const resolvers = {
   Mutation: {
     addReservation: async (
       _,
-      { name, hotelName, arrivalDate, departureDate }
+      { name, hotelName, arrivalDate, departureDate },
+      ctx
     ) => {
       const reservation = new Reservation({
         name,

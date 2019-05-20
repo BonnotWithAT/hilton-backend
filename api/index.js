@@ -2,20 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { ApolloServer, gql } = require("apollo-server-express");
-const mongoose = require("mongoose");
+const db = require("./db");
 const resolvers = require("./resolvers");
 const typeDefs = require("./typedefs");
 
-mongoose.connect(
-  `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${
-    process.env.MONGO_CONTAINER
-  }:27017`
-);
-
+// Passing in the db as a context to see if mocking is simplified for testing
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: process.env.NODE_ENV === "development"
+  playground: process.env.NODE_ENV === "development",
+  context: req => ({ ...req, db }),
 });
 const app = express();
 app.use(cors());
